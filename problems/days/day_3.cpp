@@ -5,11 +5,10 @@
 #include <charconv>
 #include <regex>
 
-PROBLEM_CLASS_CPP(3);
-
-void problem_1::solve(const std::string& fileName)
+template<> template<>
+void Problem<3>::solve<1>()
 {
-	std::ifstream input(fileName);
+	std::ifstream input(kInputFileName);
 
 	if (!input.is_open()) {
 		return;
@@ -44,12 +43,13 @@ void problem_1::solve(const std::string& fileName)
 
 	std::string answer;
 	answer = std::to_string(sum);
-	output_answer(answer);
+	OutputAnswer(answer);
 }
 
-void problem_2::solve(const std::string& fileName)
+template<> template<>
+void Problem<3>::solve<2>()
 {
-	std::ifstream input(fileName);
+	std::ifstream input(kInputFileName);
 
 	if (!input.is_open()) {
 		return;
@@ -103,5 +103,5 @@ void problem_2::solve(const std::string& fileName)
 
 	std::string answer;
 	answer = std::to_string(sum);
-	output_answer(answer);
+	OutputAnswer(answer);
 }

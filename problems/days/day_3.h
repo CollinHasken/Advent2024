@@ -2,4 +2,7 @@
 
 #include "../problem.h"
 
-PROBLEM_BASIC_CLASSES_H(3)
+template<> template<>
+void Problem<3>::solve<1>();
+template<> template<>
+void Problem<3>::solve<2>();

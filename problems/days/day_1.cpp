@@ -7,11 +7,10 @@
 #include <sstream>
 #include <vector>
 
-PROBLEM_CLASS_CPP(1);
-
-void problem_1::solve(const std::string& file_name)
+template<> template<>
+void Problem<1>::solve<1>()
 {
-	std::ifstream input(file_name);
+	std::ifstream input(kInputFileName);
 
 	if (!input.is_open()) {
 		return;
@@ -48,12 +47,13 @@ void problem_1::solve(const std::string& file_name)
 
 	std::string answer;
 	answer = std::to_string(sum);
-	output_answer(answer);
+	OutputAnswer(answer);
 }
 
-void problem_2::solve(const std::string& file_name)
+template<> template<>
+void Problem<1>::solve<2>()
 {
-	std::ifstream input(file_name);
+	std::ifstream input(kInputFileName);
 
 	if (!input.is_open()) {
 		return;
@@ -106,5 +106,5 @@ void problem_2::solve(const std::string& file_name)
 
 	std::string answer;
 	answer = std::to_string(similarity);
-	output_answer(answer);
+	OutputAnswer(answer);
 }

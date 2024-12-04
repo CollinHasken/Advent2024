@@ -5,8 +5,6 @@
 #include <sstream>
 #include <vector>
 
-PROBLEM_CLASS_CPP(2);
-
 enum class LevelDirection
 {
 	Unknown,
@@ -14,9 +12,10 @@ enum class LevelDirection
 	Decrease
 };
 
-void problem_1::solve(const std::string& file_name)
+template<> template<>
+void Problem<2>::solve<1>()
 {
-	std::ifstream input(file_name);
+	std::ifstream input(kInputFileName);
 
 	if (!input.is_open()) {
 		return;
@@ -57,7 +56,7 @@ void problem_1::solve(const std::string& file_name)
 
 	std::string answer;
 	answer = std::to_string(safeReports);
-	output_answer(answer);
+	OutputAnswer(answer);
 }
 
 bool isReportSafe(const std::vector<int>& levels, size_t unsafeLevels = 0, int skipLevel = -1)
@@ -94,11 +93,11 @@ bool isReportSafe(const std::vector<int>& levels, size_t unsafeLevels = 0, int s
 			}
 
 			// Try to skip the current number
-			if (isReportSafe(levels, unsafeLevels, rLevel))
+			if (isReportSafe(levels, unsafeLevels, static_cast<int>(rLevel)))
 				return true;
 
 			// Try to skip the previous number
-			return isReportSafe(levels, unsafeLevels, lLevel);
+			return isReportSafe(levels, unsafeLevels, static_cast<int>(rLevel));
 		}
 
 		++lLevel;
@@ -106,9 +105,10 @@ bool isReportSafe(const std::vector<int>& levels, size_t unsafeLevels = 0, int s
 	return true;
 }
 
-void problem_2::solve(const std::string& file_name)
+template<> template<>
+void Problem<2>::solve<2>()
 {
-	std::ifstream input(file_name);
+	std::ifstream input(kInputFileName);
 
 	if (!input.is_open()) {
 		return;
@@ -132,5 +132,5 @@ void problem_2::solve(const std::string& file_name)
 
 	std::string answer;
 	answer = std::to_string(safeReports);
-	output_answer(answer);
+	OutputAnswer(answer);
 }
