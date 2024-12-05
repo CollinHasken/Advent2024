@@ -14,8 +14,14 @@ public:
 	template <size_t Part>
 	void solve() { OutputAnswer("Unimplemented"); };
 
+	void solveProblems()
+	{
+		solve<1>();
+		solve<2>();
+	}
+
 	// Output the answer and automatically put it in the clipboard
-	void OutputAnswer(const std::string& answer)
+	void OutputAnswer(const std::string& answer) const
 	{
 		if (answer.empty())
 		{
