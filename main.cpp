@@ -4,7 +4,7 @@
 
 int main()
 {
-    Problem<4> problem;
+    Problem<5> problem;
     problem.solve<1>();
     problem.solve<2>();
 }
