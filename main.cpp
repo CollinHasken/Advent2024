@@ -4,6 +4,6 @@
 
 int main()
 {
-    Problem<5> problem;
+    Problem<6> problem;
     problem.solveProblems();
 }
